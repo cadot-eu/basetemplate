@@ -1,0 +1,39 @@
+{% extends '/admin/base.html.twig' %}
+{% set route =path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))%}
+{% set action =path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))| split('/')| last%}
+{% set current_path = app.request.get('_route') %}
+
+{% block title %}
+	Les liens
+{% endblock %}
+{% block body %}
+	<h1>Links</h1>
+	{% set headers = ['status','url','referrer_title','referrer'] %}
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				{% for header in headers %}
+					<th>{{header}}</th>
+				{% endfor %}
+			</tr>
+		</thead>
+		<tbody>
+			{% for link in links %}
+				{% if link['status']|default!="200" %}
+					{# and link['url']|default|slice(0,('http://localhost')|length)=='http://localhost'  %} #}
+					<tr>
+						{% for header in headers %}
+							{% if header=="url" or header=="referrer" %}
+								{% set temp = link[header]|default|replace({"localhost":app.request.server.get('HTTP_HOST')}) %}
+								{% set texte = '<a href="'~temp~'">'~temp~'</a>' %}
+							{% else %}
+								{% set texte = link[header]|default %}
+							{% endif %}
+							<th>{{texte|default|raw}}</th>
+						{% endfor %}
+					</tr>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}
