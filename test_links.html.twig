@@ -20,7 +20,6 @@
 		<tbody>
 			{% for link in links %}
 				{% if link['status']|default!="200" %}
-					{# and link['url']|default|slice(0,('http://localhost')|length)=='http://localhost'  %} #}
 					<tr>
 						{% for header in headers %}
 							{% if header=="url" or header=="referrer" %}
