@@ -7,10 +7,10 @@
  * Overview:         https://icons.getbootstrap.com/
  */
 #}
-<a {% for attr, value  in options %} {{ attr }}="{{ value }}" {% endfor %}>
+<a {% for attr, value in options %} {{ attr }}="{{ value }}" {% endfor %}>
 	<span class="float-end">
 		{% if sorted %}
-			{% if direction == 'desc' %}
+			{% if direction == 'DESC' %}
 				<i class="bi bi-sort-down"></i>
 			{% else %}
 				<i class="bi bi-sort-up"></i>
