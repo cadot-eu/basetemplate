@@ -18,7 +18,6 @@
 		{% else %}
 			<input type="hidden" name="{{ filterFieldName }}" value="{{ fields|keys|first }}"/>
 		{% endif %}
-		{{app.request.query.get('page')}}
 		<input
 		class="form-control" type="search" id="focussearch" data-controller="base--inputsend" data-base--inputsend-temps-value='800' value="{{app.request.query.all['filterValue']|default}}" name="{{ filterValueName }}" data-base--inputsend-focus-value="{{ app.request.query.get('filterValue') is defined and app.request.query.get('filterValue') != '' ?'true':'false'}}" placeholder="{{ 'filter_searchword'|trans({}, 'KnpPaginatorBundle') }}"/>
 	{# <button class="btn btn-primary">{{ options.button }}</button> #}
