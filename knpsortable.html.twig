@@ -8,7 +8,7 @@
  */
 #}
 <a {% for attr, value in options %} {{ attr }}="{{ value }}" {% endfor %}>
-	<span class="float-end">
+	<span class="float-start">
 		{% if sorted %}
 			{% if direction == 'DESC' %}
 				<i class="bi bi-sort-down"></i>
