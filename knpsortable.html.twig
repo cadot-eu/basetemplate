@@ -8,16 +8,14 @@
  */
 #}
 <a {% for attr, value in options %} {{ attr }}="{{ value }}" {% endfor %}>
-	<span class="float-start">
-		{% if sorted %}
-			{% if direction == 'DESC' %}
-				<i class="bi bi-sort-down"></i>
-			{% else %}
-				<i class="bi bi-sort-up"></i>
-			{% endif %}
+	{% if sorted %}
+		{% if direction == 'DESC' %}
+			{{ title }}<i class="bi bi-sort-down"></i>
 		{% else %}
-			<i class="bi bi-filter-left"></i>
+			{{ title }}<i class="bi bi-sort-up"></i>
 		{% endif %}
-	</span>
-	{{ title }}
+	{% else %}
+		{{ title }}<i class="bi bi-filter-left"></i>
+	{% endif %}
+
 </a>
