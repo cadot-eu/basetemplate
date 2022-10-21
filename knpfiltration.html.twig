@@ -6,7 +6,6 @@
  * View that can be used with the filter module
  */
 #}
-
 <form method="get" action="{{ action }}" enctype="application/x-www-form-urlencoded">
 	<div class="input-group mb-3">
 		{% if fields|length > 1 %}
@@ -18,8 +17,10 @@
 		{% else %}
 			<input type="hidden" name="{{ filterFieldName }}" value="{{ fields|keys|first }}"/>
 		{% endif %}
-		<input
-		class="form-control" type="search" id="focussearch" data-controller="base--inputsend" data-base--inputsend-temps-value='800' value="{{app.request.query.all['filterValue']|default}}" name="{{ filterValueName }}" data-base--inputsend-focus-value="{{ app.request.query.get('filterValue') is defined and app.request.query.get('filterValue') != '' ?'true':'false'}}" placeholder="{{ 'filter_searchword'|trans({}, 'KnpPaginatorBundle') }}"/>
-	{# <button class="btn btn-primary">{{ options.button }}</button> #}
+
+		{# découpe d'action pour récupéré focus #}
+		{# pour cela il faut ajouter par ... knp_pagination_filter(pagination, {'r.recherche': 'Recherche'},{},{'focus':'false'}) }} #}
+		{% set focus=action|split('focus=')[1]|default %}
+		<input class="form-control" type="search" id="focussearch" data-controller="base--inputsend" data-base--inputsend-temps-value='800' value="{{app.request.query.all['filterValue']|default}}" name="{{ filterValueName }}" {% if focus!='false' %} data-base--inputsend-focus-value="{{ app.request.query.get('filterValue') is defined and app.request.query.get('filterValue') != '' ?'true':'false'}}" {% endif %} placeholder="{{ 'filter_searchword'|trans({}, 'KnpPaginatorBundle') }}"/>
 	</div>
 </form>
