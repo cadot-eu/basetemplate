@@ -1,7 +1,7 @@
-{{dump(ChatMessages)}}
-<section>
-	<div class="container-fluid position-fixed " style="z-index:3000;">
+<div data-base--chat-token-value="{{ChatToken}}" data-controller="base--chat" data-base--chat-target-value='#chattarget' data-base--chat-target-value='#chattarget' data-base--chat-reponse-value='<div class="d-flex flex-row justify-content-start mb-4"> <img src="/build/andre.jpeg" class="rounded-circle" style="width: 45px; height: 100%;"> <div class="p-3 ms-4" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);"> <p class="small mb-0">REPONSE</p> </div> </div>' data-base--chat-question-value='<div class="d-flex flex-row justify-content-end mb-4"> <div class="row"> <div class="p-3 border " style="border-radius: 15px; background-color: #fbfbfb;"> <p class="small mb-0">QUESTION</p> </div> <label class="form-label">DATE</label> </div> <img src="/build/person.svg" alt="avatar 1" style="width: 45px; height: 100%;"> <div class="" > </div> </div>' data-base--chat-bonjour-value="Comment puis-je vous aider?" data-base--chat-type-value="question">
+	<div class="container-fluid position-fixed  h-75" style="z-index:3000;overflow-y:scroll;">
 		<div class="row d-flex justify-content-end ">
+			{{ChatToken}}
 			<div class="col-lg-3">
 				<div class="card" id="chat1" style="border-radius: 15px;">
 					<div class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
@@ -10,30 +10,21 @@
 						<i class="fas fa-times"></i>
 					</div>
 					<div class="card-body">
-						<div class="d-flex flex-row justify-content-start mb-4">
-							<img src="{{ asset('/build/andre.jpeg') }}" class="rounded-circle" style="width: 45px; height: 100%;">
-							<div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);">
-								<p class="small mb-0">Bonjour, que puis-je pour vous?</p>
-							</div>
-						</div>
-
-						<div class="d-flex flex-row justify-content-end mb-4">
-							<div class="p-3 me-3 border" style="border-radius: 15px; background-color: #fbfbfb;">
-								<p class="small mb-0">Bonjour, mon chauffage est en panne.</p>
-							</div>
-							<img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava2-bg.webp" alt="avatar 1" style="width: 45px; height: 100%;">
-						</div>
-
 						<div class="form-outline">
-							<textarea class="form-control" id="textAreaExample" rows="4"></textarea>
+							<textarea class="form-control" rows="4" id="chatmessage"></textarea>
 							<label class="form-label" for="textAreaExample">Tapez votre message</label>
 						</div>
-
+						<div data-ajax-target="retourAjax"></div>
+						<div class="d-flex flex-row justify-content-end mb-4">
+							<button type="submit" class="btn btn-primary" data-action="base--chat#send">Envoyer</button>
+						</div>
 					</div>
+					<div id="chattarget"></div>
+
 				</div>
 
 			</div>
 		</div>
 
 	</div>
-</section>
+</div>
