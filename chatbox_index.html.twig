@@ -2,59 +2,15 @@
 {% set route =path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))%}
 {% set action =path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))| split('/')| last%}
 {% set current_path = app.request.get('_route') %}
-
 {% block title %}
 	ChatBoxs
 {% endblock %}
-
 {% block body %}
 	<h1>Chatboxs</h1>
 	<div class="container-fluid">
-		<div class="row row-cols-1 row-cols-md-2 g-4">
-			<div class="col" style="max-height:25%;">
-				{% for chat in chats %}
-					<div class="card " style="overflow-y:auto;overflow-x:none;">
-						<div class="card-header">
-							<h5 class="card-title">N°=
-								{{chat.id}}
-								<small class="float-end">Mis à jour il y a :
-									{{chat.updatedAt|ago}}</small>
-							</h5>
-						</div>
-						<div class="card-body" style="overflow-y:auto;overflow-x:none;">
-							<div data-base--chat-token-value="{{chat.user}}" data-controller="base--chat" data-base--chat-target-value='#chattarget' data-base--chat-target-value='#chattarget' data-base--chat-reponse-value='<div class="d-flex flex-row justify-content-start mb-4"> <img src="/build/andre.jpeg" class="rounded-circle" style="width: 45px; height: 100%;"> <div class="p-3 ms-3" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);"> <p class="small mb-0">REPONSE</p> </div> </div>' data-base--chat-question-value='<div class="d-flex flex-row justify-content-end mb-4"> <div class="row me-3"> <div class="p-3 border" style="border-radius: 15px; background-color: #fbfbfb;"> <p class="small mb-0">QUESTION</p> </div> <label class="form-label">DATE</label> </div> <img src="/build/person.svg" alt="avatar 1" style="width: 45px; height: 100%;"> <div class="" > </div> </div>' data-base--chat-bonjour-value="Comment puis-je vous aider?" data-base--chat-type-value="réponse">
-								<div class="card-text">
-									<div class="form-outline">
-										<textarea class="form-control" rows="4" id="chatmessage"></textarea>
-										<label class="form-label" for="textAreaExample">Tapez votre message</label>
-									</div>
-									<div data-ajax-target="retourAjax"></div>
-									<div class="d-flex flex-row justify-content-end mb-4">
-										<button type="submit" class="btn btn-primary" data-action="base--chat#send">Envoyer</button>
 
-									</div>
-									<div id="chattarget"></div>
-
-								</div>
-							</div>
-						</div>
-						<div class="card-footer my-3">
-							<small class="text-muted ">
-								<form method="post" action="{{ path('chat_delete', {'id': chat.id }) }}">
-									<button class="btn btn-xs btn-primary float-end" title="Archiver" name="delete_softdelete" value="1">
-										<i class="icone icone bi bi-archive"></i>
-									</button>
-									<button class="btn btn-xs btn-danger" title="supprimer définitivement" onclick="return confirm('Etes-vous sûr de vouloir effacer cet item?');" name="delete_delete" value="1">
-										<i class="icone bi bi-trash"></i>
-									</button>
-									<input type="hidden" name="_token" value="{{ csrf_token('delete'~chat.id ) }}"/>
-								</form>
-								{{ chat.createdAt is not empty ? chat.createdAt|date('d/m à H:i', 'Europe/Paris'):'---'}}
-							</small>
-						</div>
-					</div>
-				{% endfor %}
-			</div>
+		<div data-controller="base--chatadmin" data-base--chatadmin-reponse-value='{{template_reponse}}' data-base--chatadmin-question-value='{{template_question}}' data-base--chatadmin-cards-value="{{template_cards}}" data-base--chatadmin-csrf-value="{{csrf}}" data-base--chatadmin-card-value="{{template_card}}">
+			<div data-base--chatadmin-target="destination"></div>
 		</div>
 	</div>
 {% endblock %}

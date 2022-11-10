@@ -1,7 +1,6 @@
-<div data-base--chat-token-value="{{ChatToken}}" data-controller="base--chat" data-base--chat-target-value='#chattarget' data-base--chat-target-value='#chattarget' data-base--chat-reponse-value='<div class="d-flex flex-row justify-content-start mb-4"> <img src="/build/andre.jpeg" class="rounded-circle" style="width: 45px; height: 100%;"> <div class="p-3 ms-4" style="border-radius: 15px; background-color: rgba(57, 192, 237,.2);"> <p class="small mb-0">REPONSE</p> </div> </div>' data-base--chat-question-value='<div class="d-flex flex-row justify-content-end mb-4"> <div class="row"> <div class="p-3 border " style="border-radius: 15px; background-color: #fbfbfb;"> <p class="small mb-0">QUESTION</p> </div> <label class="form-label">DATE</label> </div> <img src="/build/person.svg" alt="avatar 1" style="width: 45px; height: 100%;"> <div class="" > </div> </div>' data-base--chat-bonjour-value="Comment puis-je vous aider?" data-base--chat-type-value="question">
+<div data-base--chat-token-value="{{ChatToken}}" data-controller="base--chat" data-base--chat-reponse-value='{{template_box_reponse}}' data-base--chat-question-value='{{template_box_question}}' data-base--chat-bonjour-value="Comment puis-je vous aider?">
 	<div class="container-fluid position-fixed  h-75" style="z-index:3000;overflow-y:scroll;">
 		<div class="row d-flex justify-content-end ">
-			{{ChatToken}}
 			<div class="col-lg-3">
 				<div class="card" id="chat1" style="border-radius: 15px;">
 					<div class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
@@ -11,7 +10,7 @@
 					</div>
 					<div class="card-body">
 						<div class="form-outline">
-							<textarea class="form-control" rows="4" id="chatmessage"></textarea>
+							<textarea class="form-control" rows="4" data-base--chat-target="message"></textarea>
 							<label class="form-label" for="textAreaExample">Tapez votre message</label>
 						</div>
 						<div data-ajax-target="retourAjax"></div>
@@ -19,7 +18,7 @@
 							<button type="submit" class="btn btn-primary" data-action="base--chat#send">Envoyer</button>
 						</div>
 					</div>
-					<div id="chattarget"></div>
+					<div data-base--chat-target="destination"></div>
 
 				</div>
 
