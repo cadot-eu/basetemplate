@@ -1,22 +1,18 @@
 <div data-base--chat-token-value="{{ChatToken}}" data-controller="base--chat" data-base--chat-reponse-value='{{template_box_reponse}}' data-base--chat-question-value='{{template_box_question}}' data-base--chat-bonjour-value="Comment puis-je vous aider?">
-	<div class="container-fluid position-fixed  h-75" style="z-index:3000;overflow-y:scroll;top:25%;">
+	<div class="container-fluid position-fixed  h-75" style="z-index:3000;overflow-y:scroll;top:85%;">
 
-		<div class="row d-flex justify-content-end ">
+		<div class="row d-flex justify-content-end " data-base--chat-target="case">
 			<div class="col-lg-3">
-
 				<div class="card" id="chat1" style="border-radius: 15px;">
 					<div class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0" style="border-top-left-radius: 15px; border-top-right-radius: 15px;">
 						<i class="fas fa-angle-left"></i>
 						<p class="mb-0 fw-bold">Vous avez une question?</p>
 						<i class="fas fa-times"></i>
 						<button type="button" class="btn btn-outline-primary" data-base--chat-target="boutonhide" data-action="base--chat#hide" aria-label="Close">
-							<i class="bi bi-arrow-bar-up"></i>
-						</button>
-						<button type="button" data-base--chat-target="boutonshow" class="btn btn-outline-success visually-hidden" data-action="base--chat#show" aria-label="Open">
-							<i class="bi bi-arrow-bar-down"></i>
+							<i class="bi bi-x"></i>
 						</button>
 					</div>
-					<div class="card-body" data-base--chat-target="body">
+					<div class="card-body">
 						<div class="form-outline">
 							<textarea class="form-control" rows="4" data-base--chat-target="message"></textarea>
 							<label class="form-label" for="textAreaExample">Tapez votre message</label>
@@ -33,6 +29,15 @@
 
 			</div>
 		</div>
-
+		<div class="row d-flex justify-content-end visually-hidden " data-base--chat-target="bulle">
+			<div class="col-1">
+				<div class="card-header">
+					<button type="button" data-base--chat-target="boutonshow" class="btn visually-hidden" data-action="base--chat#show" aria-label="Open">
+						<i class="bi bi-chat-left-text"></i>
+						<p>Poser votre question</p>
+					</button>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
