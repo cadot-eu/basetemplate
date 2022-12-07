@@ -1,0 +1,133 @@
+{% extends '/admin/base.html.twig' %} {% set route
+=path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))%}
+{% set action
+=path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))|
+split('/')| last%} {% set current_path = app.request.get('_route') %} {% block
+title %} Parametres {% endblock %} {% block body %} 
+<h1>Parametres</h1>
+<div class="row">
+	{% if not false %}
+	<div class="col-8">
+		{{ knp_pagination_filter(pagination, {
+                    'r.recherche': 'Recherche',
+                }) }}
+	</div>
+	<div class="col-4 my-auto">
+		{% if pagination.getTotalItemCount>0 %}
+		<strong class="ms-auto text-bold">
+			{{ pagination.getTotalItemCount }}
+			trouvés</strong
+		>
+		{% endif %}
+	</div>
+	{% endif %}
+	<table class="table table-striped table-hover align-middle">
+		<thead>
+			<tr>
+				<th {{pagination.isSorted('a.nom')?"class='sorted'"}}>
+                {{ knp_pagination_sortable(pagination, 'nom', 'a.nom') }}
+<th {{pagination.isSorted('a.valeur')?"class='sorted'"}}>
+                {{ knp_pagination_sortable(pagination, 'valeur', 'a.valeur') }}
+<th {{pagination.isSorted('a.slug')?"class='sorted'"}}>
+                {{ knp_pagination_sortable(pagination, 'slug', 'a.slug') }}
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody class="sortable">
+			{% for Parametres in pagination %} {% if true  %}
+			<tr data-num="{{Parametres.id }}">
+				<td class="my-auto " title="{{Parametres.nom|striptags|u.truncate(200, '...')}}"> {{Parametres.nom|striptags|u.truncate(40, '...')}}
+
+<td class="my-auto " title="{{Parametres.valeur|striptags|u.truncate(200, '...')}}"> {{Parametres.valeur|striptags|u.truncate(20, '...')}}
+
+<td class="my-auto " > {{Parametres.slug|raw}}
+
+{%if action=="deleted" %}<td>{{ Parametres.deletedAt is not empty ? Parametres.deletedAt|date('d/m à H:i', 'Europe/Paris')}}{% endif %}
+				<td>
+					<form
+						method="post"
+						action="{{ path('parametres_delete', {'id': Parametres.id }) }}"
+						style="margin-block-end: 0"
+					>
+						<div class="btn-group" role="group" aria-label="actions">
+							<input
+								type="hidden"
+								name="_token"
+								value="{{ csrf_token('delete'~Parametres.id ) }}"
+							/>
+							<a class='btn btn-xs btn-primary'   data-turbo="false" title='edit' href="{{ path('parametres_edit', {'id': Parametres.id }) }}"><i class='icone icone bi bi-pencil-square'></i></a> {% if true %} {% if
+							action=='deleted' %}
+							<button
+								class="btn btn-xs btn-warning"
+								title="restaurer"
+								name="delete_restore"
+								value="1"
+							>
+								<i class="icone bi bi-life-preserver"></i>
+							</button>
+							<button
+								class="btn btn-xs btn-danger"
+								title="supprimer définitivement"
+								onclick="return confirm('Etes-vous sûr de vouloir effacer cet item?');"
+								name="delete_delete"
+								value="1"
+							>
+								<i class="icone bi bi-trash"></i>
+							</button>
+							{% else %}
+							<button
+								class="btn btn-xs btn-warning"
+								title="mettre dans la corbeille"
+								name="delete_softdelete"
+								value="1"
+							>
+								<i class="icone icone bi bi-trash"></i>
+							</button>
+							{% endif %} {% endif %}
+						</div>
+					</form>
+				</td>
+			</tr>
+
+			{% else %}
+			<tr>
+				<td colspan="11">Aucun enregistrement</td>
+			</tr>
+
+			{% endif %} {% endfor %}
+		</tbody>
+	</table>
+</div>
+<div class="row">
+	{% if false %}
+	<div class="col">
+		<a
+			class="btn btn-primary"
+			data-toggle="tooltip"
+			title="ajouter enregistrement"
+			data-turbo="false"
+			href="{{ path('parametres_new') }}"
+			>Ajouter un enregistrement</a
+		>
+	</div>
+	{% endif %} {% if true %} {% if action=='deleted' %}
+	<div class="col-auto">
+		<a class="text-muted" href="{{ path('parametres_index') }}"
+			>voir les enregistrements</a
+		>
+	</div>
+	{% else %}
+	<div class="col-auto">
+		<a class="text-muted" href="{{ path('parametres_deleted') }}"
+			>voir les enregistrements supprimés</a
+		>
+	</div>
+	{% endif %} {% endif %}
+</div>
+{% if not false %}
+<div class="row">
+	<div class="navigation col-auto mx-auto">
+		{{ knp_pagination_render(pagination) }}
+	</div>
+</div>
+{% endif %} {% endblock %}
