@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Email de réinitialisation
+{% endblock %}
+
+{% block body %}
+	{% for flash_error in app.flashes('reset_password_error') %}
+		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
+	{% endfor %}
+	Email de réinitialisation envoyé</h1>
+<section id="article">
+	<div class="container" data-aos="fade-up">
+		<div class="row col-6 mx-auto d-flex flex-column text-center py-5">
+			<p>
+				Un email a été envoyé à l'adresse mail, il contient un lien pour réinitialiser votre mot de passe.
+			</p>
+			<p>Il expire dans
+				{{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}</p>
+		</p>
+		<p>Si vous ne l'avez pas reçu, merci de regarder dans vos spams ou
+			<a href="{{ path('app_forgot_password_request') }}">essayez encore.</a>.</p>
+		<a class="btn btn-primary mt-3" href="/">Revenir sur le site</a>
+	</div>
+</section>{% endblock %}
