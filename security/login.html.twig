@@ -33,5 +33,6 @@
 			</button>
 			<a href="{{path('app_forgot_password_request')}}">Réinitialiser mon mot de passe</a>
 		{% endif %}
+		<input type="hidden" name="_target_path" value="{{ app.request.server.get('http-referer')}}">
 	</form>
 {% endblock %}
