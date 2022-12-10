@@ -1,0 +1,88 @@
+{
+"1bd77ad":{  "subject": "correction editeur normal et vide",
+  "date": "Wed, 7 Dec 2022 16:28:49 +0100"
+ },
+"f899cc1":{  "subject": "start",
+  "date": "Wed, 7 Dec 2022 15:38:19 +0100"
+ },
+"5e424a6":{  "subject": "création de simplebox avec fichier templates exterieur",
+  "date": "Wed, 30 Nov 2022 10:38:35 +0100"
+ },
+"5136ba7":{  "subject": "patch chatbox",
+  "date": "Wed, 23 Nov 2022 18:26:54 +0100"
+ },
+"f760925":{  "subject": "suite objet",
+  "date": "Wed, 23 Nov 2022 10:27:02 +0100"
+ },
+"e14e9f4":{  "subject": "refactorisation en cours",
+  "date": "Tue, 22 Nov 2022 19:53:52 +0100"
+ },
+"0361ed1":{  "subject": "chatbox position",
+  "date": "Mon, 21 Nov 2022 14:27:27 +0100"
+ },
+"1eb4311":{  "subject": "chatbox se souvenir,visibilité",
+  "date": "Tue, 15 Nov 2022 10:56:24 +0100"
+ },
+"65209dd":{  "subject": "modify bulle",
+  "date": "Tue, 15 Nov 2022 10:46:20 +0100"
+ },
+"ee9e291":{  "subject": "modify bulle",
+  "date": "Tue, 15 Nov 2022 10:15:34 +0100"
+ },
+"ac5a9c1":{  "subject": "add bouton pour cacher",
+  "date": "Sat, 12 Nov 2022 12:57:59 +0100"
+ },
+"5f903b5":{  "subject": "add pour bonjour message",
+  "date": "Thu, 10 Nov 2022 18:51:58 +0100"
+ },
+"ff95c28":{  "subject": "chatbox ok",
+  "date": "Thu, 10 Nov 2022 18:35:59 +0100"
+ },
+"c8a1b3a":{  "subject": "mailbox avec html sortis",
+  "date": "Tue, 8 Nov 2022 15:02:00 +0100"
+ },
+"9b90e20":{  "subject": "debut de la chatbox",
+  "date": "Mon, 7 Nov 2022 11:21:53 +0100"
+ },
+"5578522":{  "subject": "retire inputsend des knprecherche",
+  "date": "Sat, 22 Oct 2022 12:39:38 +0200"
+ },
+"ec94c2e":{  "subject": "recherche sans remonter",
+  "date": "Fri, 21 Oct 2022 14:00:57 +0200"
+ },
+"d183f1c":{  "subject": "maj",
+  "date": "Wed, 14 Sep 2022 23:08:37 +0200"
+ },
+"941b73c":{  "subject": "rectification affichage action",
+  "date": "Sun, 11 Sep 2022 17:13:37 +0200"
+ },
+"1841327":{  "subject": "page reset sur nouvelle recherche",
+  "date": "Sun, 11 Sep 2022 13:36:30 +0200"
+ },
+"3ea17e3":{  "subject": "réparation focus filterValue",
+  "date": "Sat, 27 Aug 2022 10:20:00 +0200"
+ },
+"cceca5e":{  "subject": "ajout id aux titres",
+  "date": "Sat, 27 Aug 2022 09:01:35 +0200"
+ },
+"cf03f68":{  "subject": "exrecherche réparée",
+  "date": "Fri, 26 Aug 2022 19:48:04 +0200"
+ },
+"5acee35":{  "subject": "start",
+  "date": "Thu, 25 Aug 2022 11:56:59 +0200"
+ },
+"26898b8":{  "subject": "access denied",
+  "date": "Tue, 26 Jul 2022 19:25:50 +0200"
+ },
+"d31224f":{  "subject": "links",
+  "date": "Tue, 26 Jul 2022 09:29:17 +0200"
+ },
+"02a85cc":{  "subject": "add test",
+  "date": "Tue, 26 Jul 2022 08:55:50 +0200"
+ },
+"cb50bb5":{  "subject": "start",
+  "date": "Fri, 8 Jul 2022 10:22:20 +0200"
+ },
+"40699a7":{  "subject": "first commit",
+  "date": "Fri, 8 Jul 2022 10:22:09 +0200"
+ }}
