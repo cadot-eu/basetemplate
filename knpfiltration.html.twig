@@ -13,6 +13,7 @@
 				{% for field, label in fields %}
 					<option value="{{ field }}" {% if selectedField == field %} selected="selected" {% endif %}>{{ label }}</option>
 				{% endfor %}
+
 			</select>
 		{% else %}
 			<input type="hidden" name="{{ filterFieldName }}" value="{{ fields|keys|first }}"/>
@@ -28,6 +29,12 @@
 				</button>
 			</div>
 		</div>
+		{% if app.request.get('knpChampsRecherche')  %}
+								<div class="input-group text-muted">
+									Recherche dans:
+									{{app.request.get('knpChampsRecherche')}}
+								</div>
+							{% endif %}
 
 
 	</div>
