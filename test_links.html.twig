@@ -7,18 +7,23 @@
 	Les liens
 {% endblock %}
 {% block body %}
-	<h1>Links</h1>
+	<h1>
+		Links
+	</h1>
 	{% set headers = ['status','url','referrer_title','referrer'] %}
 	<table class="table table-striped">
 		<thead>
 			<tr>
 				{% for header in headers %}
-					<th>{{header}}</th>
+					<th>
+						{{header}}
+					</th>
 				{% endfor %}
 			</tr>
 		</thead>
 		<tbody>
 			{% for link in links %}
+
 				{% if link['status']|default!="200" %}
 					<tr>
 						{% for header in headers %}
@@ -28,7 +33,9 @@
 							{% else %}
 								{% set texte = link[header]|default %}
 							{% endif %}
-							<th>{{texte|default|raw}}</th>
+							<th>
+								{{texte|default|raw}}
+							</th>
 						{% endfor %}
 					</tr>
 				{% endif %}
