@@ -1,9 +1,9 @@
 {% if app.flashes is defined %}
-	<div class="container-fluid fs-3 bg-light shadow" id="flash_message" style=" margin-top:10px;position: fixed;z-index:3000;" data-turbo-permanent>
+	<div class="container-fluid " id="flash_message" data-turbo-permanent>
 		<div class="row mt-4" id="error-container">
 			<div class="col-8 offset-2">
 				{% for message in app.flashes('notice') %}
-					<div class="alert alert-info" role="alert">
+					<div class="alert alert-info fs-3 bg-light shadow" style=" margin-top:10px;position: fixed;z-index:3000;" role="alert">
 						<p>
 							{{ message }}
 						</p>
@@ -12,7 +12,7 @@
 
 				{% for label, messages in app.flashes(['warning', 'error']) %}
 					{% for message in messages %}
-						<div class="alert alert-danger" role="alert">
+						<div class="alert alert-danger fs-3 bg-light shadow" style=" margin-top:10px;position: fixed;z-index:3000;" role="alert">
 							<p>
 								{{ message }}
 							</p>
@@ -21,7 +21,7 @@
 				{% endfor %}
 				{% for label, messages in app.flashes(['success']) %}
 					{% for message in messages %}
-						<div class="alert alert-success" role="alert">
+						<div class="alert alert-success fs-3 bg-light shadow" style=" margin-top:10px;position: fixed;z-index:3000;" role="alert">
 							{{ message }}
 						</div>
 					{% endfor %}
