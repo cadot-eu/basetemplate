@@ -1,0 +1,30 @@
+{% extends "base.html.twig" %}
+{% block body %}
+	<div class="container" data-controller="base--stripe" data-base--stripe-stripekey-value="{{TBgetenv('STRIPE_KEY')}}">
+		<div class="row justify-content-center">
+			<div class="col-4">
+				<div class="card">
+					<div class="card-body">
+						{% for message in app.flashes('success') %}
+							<div style="color: green; border: 2px green solid; text-align: center; padding: 5px;margin-bottom: 10px;">
+								{{ message }}
+							</div>
+						{% endfor %}
+
+						<form data-base--stripe-target="form" method='post' action="{{ path('app_stripe_charge') }}">
+							<input type='hidden' name='stripeToken' data-base--stripe-target="token">
+							<label for="card-element" class="mb-5">
+								Checkout Forms
+							</label>
+							<br>
+							<div id="card-element" class="form-control"></div>
+							<button id='pay-btn' class="btn btn-success mt-3" type="button" style="margin-top: 20px; width: 100%;padding: 7px;" data-action="base--stripe#createToken" data-base--stripe-target="bouton">
+								PAY $5
+							</button>
+							<form></div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		{% endblock %}
