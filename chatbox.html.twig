@@ -1,58 +1,28 @@
-<div
-	data-base--chat-token-value="{{ ChatToken }}"
-	data-controller="base--chat"
-	data-base--chat-reponse-value="{{ template_box_reponse }}"
-	data-base--chat-question-value="{{ template_box_question }}"
-	data-base--chat-bonjour-value="Comment puis-je vous aider?"
->
-	<div
-		class="position-fixed"
-		style="z-index: 30; overflow-y: auto; bottom: 15%; right: 10px"
-	>
-		<div
-			class="row d-flex justify-content-end m-0 visually-hidden"
-			data-base--chat-target="case"
-		>
+<div data-base--chat-token-value="{{ ChatToken }}" data-controller="base--chat" data-base--chat-reponse-value="{{ template_box_reponse }}" data-base--chat-question-value="{{ template_box_question }}" data-base--chat-bonjour-value="Comment puis-je vous aider?">
+	<div class="position-fixed" style="z-index: 30; overflow-y: auto; bottom: 15%; right: 10px">
+		<div class="row d-flex justify-content-end m-0 visually-hidden" data-base--chat-target="case">
 			<div class="col-auto">
 				<div class="card" id="chat1" style="border-radius: 15px">
-					<div
-						class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0"
-						style="
-							border-top-left-radius: 15px;
-							border-top-right-radius: 15px;
-						"
-					>
+					<div class="card-header d-flex justify-content-between align-items-center p-3 bg-info text-white border-bottom-0" style="border-top-left-radius: 15px;border-top-right-radius: 15px;">
 						<i class="fas fa-angle-left"></i>
-						<p class="mb-0 fw-bold">Vous avez une question?</p>
+						<p class="mb-0 fw-bold ">
+							Vous avez une question?
+						</p>
 						<i class="fas fa-times"></i>
-						<button
-							type="button"
-							class="btn btn-outline-primary"
-							data-base--chat-target="boutonhide"
-							data-action="base--chat#hide"
-							aria-label="Close"
-						>
+						<button type="button" class="btn btn-outline-primary" data-base--chat-target="boutonhide" data-action="base--chat#hide" aria-label="Close">
 							<i class="bi bi-x"></i>
 						</button>
 					</div>
 					<div class="card-body">
 						<div class="form-outline">
-							<textarea
-								class="form-control"
-								rows="4"
-								data-base--chat-target="message"
-							></textarea>
-							<label class="form-label" for="textAreaExample"
-								>Tapez votre message</label
-							>
+							<textarea class="form-control" rows="4" data-base--chat-target="message"></textarea>
+							<label class="form-label" for="textAreaExample">
+								Tapez votre message
+							</label>
 						</div>
 						<div data-ajax-target="retourAjax"></div>
 						<div class="d-flex flex-row justify-content-end mb-4">
-							<button
-								type="submit"
-								class="btn btn-primary"
-								data-action="base--chat#send"
-							>
+							<button type="submit" class="btn btn-primary" data-action="base--chat#send">
 								Envoyer
 							</button>
 						</div>
@@ -63,15 +33,11 @@
 		</div>
 		<div class="float-end visually-hidden" data-base--chat-target="bulle">
 			<div class="card">
-				<button
-					type="button"
-					data-base--chat-target="boutonshow"
-					class="btn visually-hidden"
-					data-action="base--chat#show"
-					aria-label="Open"
-				>
+				<button type="button" data-base--chat-target="boutonshow" class="btn visually-hidden" data-action="base--chat#show" aria-label="Open">
 					<i class="bi bi-chat-left-text"></i>
-					<p>Poser votre question</p>
+					<p>
+						Poser votre question
+					</p>
 				</button>
 			</div>
 		</div>
