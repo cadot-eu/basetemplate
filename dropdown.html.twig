@@ -1,16 +1,18 @@
 {# /* ------------------------ macro pour les dropdowns ------------------------ */ #}
-{% macro dropdown(nom,parties) %}
+{# Exemple d'utilisation :
+{{ dropdown('nom du dropdown', ['partie1','partie2','partie3']) }}
+{{ dropdown('nom du dropdown', {'partie1':'lien1','partie2':'lien2','partie3':'lien3'}) }} #}
+	{% macro dropdown(nom,parties) %}
 	{% set action =path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))| split('/')| last %}
-	<li class="nav-item dropdown">
-		<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+		<li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			{{nom|capitalize}}
 		</a>
 		<ul class="dropdown-menu">
 			{% for partie in parties %}
 				<li>
-					{% set lien = partie is iterable?partie[1]: path(partie~'_index')  %}
-					{% set part = partie is iterable?partie[0]:partie %}
-					<a class="dropdown-item  {{ action== part ? 'active' }}" href="{{ lien }}">
+					{% set lien = parties[0] is not defined?path(partie): path(partie~'_index')  %}
+					{% set part = parties[0] is not defined?parties|keys[loop.index0]:partie %}
+					<a class="dropdown-item  {{ action== part ? 'active' }}" href="{{ lien }}" data-turbo="false">
 						{{ part|replace({'_':' '})|capitalize }}
 					</a>
 				</li>
