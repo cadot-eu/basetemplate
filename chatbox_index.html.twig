@@ -6,11 +6,14 @@
 	ChatBoxs
 {% endblock %}
 {% block body %}
-	<h1>Chatboxs</h1>
-	<div class="container-fluid">
-
-		<div data-controller="base--chatadmin" data-base--chatadmin-reponse-value='{{template_reponse}}' data-base--chatadmin-question-value='{{template_question}}' data-base--chatadmin-cards-value="{{template_cards}}" data-base--chatadmin-csrf-value="{{csrf}}" data-base--chatadmin-card-value="{{template_card}}">
+	<h1>
+		Chatboxs
+	</h1>
+	{# container de la chatbox #}
+	<div class="container">
+		<div data-controller="base--chatadmin" data-base--chatadmin-reponse-value='{{template_reponse}}' data-base--chatadmin-question-value='{{template_question}}' data-base--chatadmin-cards-value="{{template_cards}}" data-base--chatadmin-csrf-value="{{csrf}}" data-base--chatadmin-card-value="{{template_card}}" data-base--chatadmin-person-value="{{template_person}}">
 			<div data-base--chatadmin-target="destination"></div>
 		</div>
+
 	</div>
 {% endblock %}

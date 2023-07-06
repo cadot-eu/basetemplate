@@ -1,35 +1,38 @@
-<div class="col-sm-4">
-	<div class="card">
-		<div class="card-header">
-			<h5 class="card-title">Chat n°=CHAT
-				<span class="float-end">il y a DATE</span>
-			</h5>
+<div class="card">
+	<div class="card-header my-3">
+
+		<h5 class="card-title">
+			Chat n°=CHAT
+			<span class="float-end">
+				il y a DATE
+			</span>
+		</h5>
+		<small class="text-muted ">
+			<form method="post" action="/admin/chat/archive/CHAT">
+				<button class="btn btn-xs btn-primary float-end" title="Archiver" name="delete_softdelete" value="1">
+					<i class="icone icone bi bi-archive"></i>
+				</button>
+				<button class="btn btn-xs btn-danger" title="supprimer définitivement" onclick="return confirm('Etes-vous sûr de vouloir effacer cet item?');" name="delete_delete" value="1">
+					<i class="icone bi bi-trash"></i>
+				</button>
+				<input type="hidden" name="_token" value="CSRF"/>
+			</form>
+		</small>
+	</div>
+	<div class="card-text p-2">
+		<div class="form-outline m-2">
+			<textarea class="form-control " rows="4" data-action="click->base--chatadmin#pause" id="chat_messageTOKEN"></textarea>
+
 		</div>
-		<div class="card-text">
-			<div class="form-outline">
-				<textarea class="form-control " rows="4" data-action="click->base--chatadmin#pause" id="chat_messageTOKEN"></textarea>
-				<label class="form-label" for="textAreaExample">Tapez une réponse</label>
-			</div>
-			<div data-ajax-target="retourAjax"></div>
-			<div class="d-flex flex-row justify-content-end mb-4">
-				<button type="submit" class="btn btn-primary" data-action="base--chatadmin#send" data-token="TOKEN">Envoyer</button>
-			</div>
-		</div>
-		<div class="card-body">
-			CARD
-		</div>
-		<div class="card-footer my-3">
-			<small class="text-muted ">
-				<form method="post" action="/admin/chat/CHAT">
-					<button class="btn btn-xs btn-primary float-end" title="Archiver" name="delete_softdelete" value="1">
-						<i class="icone icone bi bi-archive"></i>
-					</button>
-					<button class="btn btn-xs btn-danger" title="supprimer définitivement" onclick="return confirm('Etes-vous sûr de vouloir effacer cet item?');" name="delete_delete" value="1">
-						<i class="icone bi bi-trash"></i>
-					</button>
-					<input type="hidden" name="_token" value="CSRF"/>
-				</form>
-			</small>
+		<div data-ajax-target="retourAjax"></div>
+		<div class="d-flex flex-row justify-content-end mb-4">
+			<button type="submit" class="btn btn-primary" data-action="base--chatadmin#send" data-token="TOKEN">
+				Envoyer
+			</button>
 		</div>
 	</div>
+	<div class="card-body">
+		CARD
+	</div>
+
 </div>
