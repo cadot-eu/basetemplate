@@ -1,0 +1,236 @@
+/* Reset de la marge et du padding pour tous les éléments */
+
+
+* {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-right {
+    text-align: right;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        width: percentage($i / 12);
+    }
+}
+
+
+.container {
+    width: 100%;
+    padding: 1rem;
+}
+
+.container-fluid {
+    width: 100%;
+    text-align: center;
+
+}
+
+@for $i from 0 through 20 {
+    .line-height-#{$i} {
+        line-height: $i * 5%; // Utilisez la valeur flottante correspondante
+    }
+}
+
+@for $i from 1 through 10 {
+
+
+    .p-#{$i} {
+        padding: #{$i}rem;
+    }
+
+    .m-#{$i} {
+        margin: #{$i}rem;
+    }
+
+    .pt-#{$i} {
+        padding-top: #{$i}rem;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: #{$i}rem;
+    }
+
+    .pr-#{$i} {
+        padding-right: #{$i}rem;
+    }
+
+    .pl-#{$i} {
+        padding-left: #{$i}rem;
+    }
+
+    .mt-#{$i} {
+        margin-top: #{$i}rem;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: #{$i}rem;
+    }
+
+    .mr-#{$i} {
+        margin-right: #{$i}rem;
+    }
+
+    .ml-#{$i} {
+        margin-left: #{$i}rem;
+    }
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-italic {
+    font-style: italic;
+}
+
+.text-underline {
+    text-decoration: underline;
+}
+
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.fs-1 {
+    font-size: 1rem;
+}
+
+.fs-2 {
+    font-size: 2rem;
+}
+
+.fs-3 {
+    font-size: 3rem;
+}
+
+.fs-4 {
+    font-size: 4rem;
+}
+
+.fs-5 {
+    font-size: 5rem;
+}
+
+.fs-6 {
+    font-size: 6rem;
+}
+
+.fs-7 {
+    font-size: 7rem;
+}
+
+.fs-8 {
+    font-size: 8rem;
+}
+
+.background-primary {
+    background-color: #f3f3f3;
+    color: #6e6e6e;
+}
+
+.background-secondary {
+    background-color: #ff7000;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.text-black {
+    color: #000;
+}
+
+.pt-0 {
+    padding-top: 0;
+}
+
+.pr-0 {
+    padding-right: 0;
+}
+
+.pb-0 {
+    padding-bottom: 0;
+}
+
+.pl-0 {
+    padding-left: 0;
+}
+
+.mt-0 {
+    margin-top: 0;
+}
+
+.mb-0 {
+    margin-bottom: 0;
+}
+
+.mr-0 {
+    margin-right: 0;
+}
+
+.ml-0 {
+    margin-left: 0;
+}
+
+.p0 {
+    padding: 0;
+}
+
+.m0 {
+    margin: 0;
+}
+
+.border-none {
+    border: none;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #6e6e6e;
+}
+
+.border-top {
+    border-top: 1px solid #6e6e6e;
+}
+
+.border-right {
+    border-right: 1px solid #6e6e6e;
+}
+
+.border-left {
+    border-left: 1px solid #6e6e6e;
+}
+
+.border {
+    border: 1px solid #6e6e6e;
+}
