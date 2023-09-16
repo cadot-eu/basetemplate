@@ -1,5 +1,7 @@
 /* Reset de la marge et du padding pour tous les éléments */
-
+@page {
+    margin: 0;
+}
 
 * {
     margin: 0;
@@ -38,8 +40,8 @@ body {
 
 
 .container {
-    width: 100%;
-    padding: 1rem;
+    width: 90%;
+    margin: 0 auto;
 }
 
 .container-fluid {
@@ -233,4 +235,8 @@ body {
 
 .border {
     border: 1px solid #6e6e6e;
+}
+
+.mx-auto {
+    margin: 0 auto;
 }
