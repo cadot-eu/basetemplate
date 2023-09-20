@@ -22,7 +22,7 @@
 			<div class="input-group-prepend">
 				<button class="btn btn-secondary" type="submit">Chercher</button>
 			</div>
-			<input class="form-control" type="text" id="focussearch" name="{{ filterValueName }}" value="{{ app.request.get('filterValue')}}" placeholder="{{ 'filter_searchword'|trans({}, 'KnpPaginatorBundle') }}"/>
+			<input class="form-control" type="text" id="focussearch" name="{{ filterValueName }}" value="{{ app.request.get('filterValue')}}" placeholder="Mots ou début de mots"/>
 			<div class="input-group-append">
 				<button class="btn btn-outline-dark" type="submit" onclick="document.getElementById('focussearch').value='';">
 					<i class="bi bi-x"></i>
@@ -30,11 +30,11 @@
 			</div>
 		</div>
 		{% if app.request.get('knpChampsRecherche')  %}
-								<div class="input-group text-muted">
-									Recherche dans:
-									{{app.request.get('knpChampsRecherche')}}
-								</div>
-							{% endif %}
+			<div class="input-group text-muted">
+				Recherche dans:
+				{{app.request.get('knpChampsRecherche')}}
+			</div>
+		{% endif %}
 
 
 	</div>
