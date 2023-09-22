@@ -74,7 +74,7 @@
 						</td>
 						<td class="p-2 pt-0 text-right pb-0 mb-0">
 							{% if client.entreprise %}
-								<p>{{'Entreprise'~ client.nomEntreprise|capitalize }}</p>
+								<p>{{'Entreprise :'~ client.Entreprise|capitalize }}</p>
 							{% endif %}
 
 							<p>{{client.getNom|capitalize~ ' ' ~ client.getPrenom|capitalize}}</p>
@@ -137,7 +137,7 @@
 								{% else %}
 									&nbsp;
 								{% endif %}
-								{{ item.description }}
+								{{ item.description|raw }}
 							</td>
 							<td class="text-center ">
 								{{ item.quantite }}
