@@ -1,0 +1,263 @@
+<button type="button" class="btn  btn-lg position-fixed" data-bs-toggle="modal" data-bs-target="#modalId" style="left: 10px; bottom: 10px;z-index:5000;background-color:rgba(255, 161, 45, 0.5);">
+	<div class="d-flex justify-content-around align-items-center">
+		<img src="{{asset('/build/pic-192x192.png'|imagine_filter('icone'))}}" class="img-fluid" id="logopicbleu" alt="logopicbleu" title="logopicbleu"><p class="text-primary ps-2">Picbleu analyse votre situation</p>
+	</div>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
+	<div class="modal-dialog modal-xl" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="modalTitleId">
+					Etude personnalisée Picbleu
+				</h5>
+				<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+			</div>
+			<div class="modal-body">
+				<div class="container-fluid">
+					<div class="col-12" data-turbo="false">
+						<form name="popin" method="post" class="row">
+							<div class="col-4 mb-3 row">
+								<label class="col-form-label col-sm-2 required" for="popin_sexe">Civilité</label>
+								<div class="col-sm-10">
+									<select id="popin_sexe" name="popin[sexe]" class="form-select">
+										<option value="M">M</option>
+										<option value="Mme">Mme</option>
+										<option value="Mlle">Mlle</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-4 mb-3 row">
+								<label class="col-form-label col-sm-2 required" for="popin_nom">Nom</label>
+								<div class="col-sm-10"><input type="text" id="popin_nom" name="popin[nom]" required="required" maxlength="255" class="form-control">
+								</div>
+							</div>
+
+
+							<div class="col-4 mb-3 row">
+								<label class="col-form-label col-sm-2 required" for="popin_prenom">prénom</label>
+								<div class="col-sm-10"><input type="text" id="popin_prenom" name="popin[prenom]" required="required" maxlength="255" class="form-control">
+								</div>
+							</div>
+
+
+							<div class="col-6 mb-3 row">
+								<label class="col-form-label col-sm-2 required" for="popin_vousetes">vous êtes</label>
+								<div class="col-sm-10">
+									<select id="popin_vousetes" name="popin[vousetes]" class="form-select">
+										<option value="particulier">particulier</option>
+										<option value="société">société</option>
+										<option value="commerçant">commerçant</option>
+										<option value="industriel">industriel</option>
+										<option value="profession libérale">profession libérale</option>
+										<option value="syndic de copropriété">syndic de copropriété</option>
+										<option value="promoteur-constructeur">promoteur-constructeur</option>
+										<option value="administration">administration</option>
+										<option value="association">association</option>
+										<option value="architecte">architecte</option>
+										<option value="agence immobilière">agence immobilière</option>
+										<option value="autre">autre</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class=" col-6 mb-3 row">
+								<label class="col-form-label col-sm-2 required" for="popin_et">Et</label>
+								<div class="col-sm-10">
+									<select id="popin_et" name="popin[et]" class="form-select">
+										<option value="propriétaire occupant">propriétaire occupant</option>
+										<option value="propriétaire bailleur">propriétaire bailleur</option>
+										<option value="futur propriétaire">futur propriétaire</option>
+										<option value="locataire">locataire</option>
+										<option value="futur locataire">futur locataire</option>
+										<option value="administrateur">administrateur</option>
+										<option value="autre">autre</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-3 mb-3 row">
+								<label class="col-form-label col-sm-2 required" for="popin_codepostal">Code postal</label>
+								<div class="col-sm-10"><input type="number" id="popin_codepostal" name="popin[codepostal]" required="required" step="any" class="form-control">
+								</div>
+							</div>
+
+
+							<div class="col-3 mb-3 row">
+								<label class="col-form-label col-sm-2 required" for="popin_ville">Ville</label>
+								<div class="col-sm-10"><input type="text" id="popin_ville" name="popin[ville]" required="required" maxlength="255" class="form-control">
+								</div>
+							</div>
+
+
+							<div class="col-3 mb-3 row">
+								<label class="col-form-label col-sm-2 required " for="popin_email">
+									<i class="bi bi-envelope"></i>
+								</label>
+								<div class="col-sm-10"><input type="email" id="popin_email" name="popin[email]" required="required" class="form-control">
+								</div>
+							</div>
+
+
+							<div class="col-3 mb-3 row">
+								<label class="col-form-label col-sm-2 required" for="popin_telephone">
+									<i class="bi bi-telephone"></i>
+								</label>
+								<div class="col-sm-10"><input type="tel" id="popin_telephone" name="popin[telephone]" required="required" data-controller="base--mask" data-base--mask-alias-value="telephone" class="form-control">
+								</div>
+							</div>
+
+
+							<div class="col-4 mb-3 row">
+								<label class="col-form-label col required" for="popin_de">Précisez une heure pour convenir d'un appel téléphonique</label>
+								<div class="col"><input type="text" id="popin_de" name="popin[de]" required="required" maxlength="255" class="form-control">
+								</div>
+							</div>
+
+
+							<div class="col-4 mb-3 row">
+								<label class="col-form-label col required" for="popin_typetravaux">Type de travaux</label>
+								<div class="col">
+									<select id="popin_typetravaux" name="popin[typetravaux]" class="form-select">
+										<option value="installation neuve">installation neuve</option>
+										<option value="remplacement">remplacement</option>
+										<option value="réparation">réparation</option>
+										<option value="entretien">entretien</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-4 mb-3 row">
+								<label class="col-form-label col required" for="popin_typechauffage">Type de chauffage</label>
+								<div class="col">
+									<select id="popin_typechauffage" name="popin[typechauffage]" class="form-select">
+										<option value="gaz de ville">gaz de ville</option>
+										<option value="gaz en citerne">gaz en citerne</option>
+										<option value="fioul">fioul</option>
+										<option value="électrique">électrique</option>
+										<option value="bois">bois</option>
+										<option value="géothermique">géothermique</option>
+										<option value="solaire">solaire</option>
+										<option value="pellets">pellets</option>
+										<option value="autre">autre</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-4 mb-3 row">
+								<label class="col-form-label col required" for="popin_nbrpieces">Nombre de pieces</label>
+								<div class="col">
+									<select id="popin_nbrpieces" name="popin[nbrpieces]" class="form-select">
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+										<option value="+ de 5">+ de 5</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-4 mb-3 row">
+								<label class="col-form-label col required" for="popin_surfacetotal">Surface total</label>
+								<div class="col"><input type="number" id="popin_surfacetotal" name="popin[surfacetotal]" required="required" class="form-control" value="0">
+								</div>
+							</div>
+
+
+							<div class="col-4 mb-3 row">
+								<label class="col-form-label col required" for="popin_modechauffacge">Mode de chauffage actuel</label>
+								<div class="col">
+									<select id="popin_modechauffacge" name="popin[modechauffacge]" class="form-select">
+										<option value="gaz de ville">gaz de ville</option>
+										<option value="gaz en citerne">gaz en citerne</option>
+										<option value="fioul">fioul</option>
+										<option value="électrique">électrique</option>
+										<option value="bois">bois</option>
+										<option value="géothermique">géothermique</option>
+										<option value="solaire">solaire</option>
+										<option value="pellets">pellets</option>
+										<option value="autre">autre</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-6 mb-3 row">
+								<label class="col-form-label col required" for="popin_chaudiere">avez-vous une chaudière</label>
+								<div class="col">
+									<select id="popin_chaudiere" name="popin[chaudiere]" class="form-select">
+										<option value="oui">oui</option>
+										<option value="non">non</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-6 mb-3 row">
+								<label class="col-form-label col required" for="popin_localchaudiere">disposez-vous d'un local pour la chaudière</label>
+								<div class="col">
+									<select id="popin_localchaudiere" name="popin[localchaudiere]" class="form-select">
+										<option value="oui">oui</option>
+										<option value="non">non</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-6 mb-3 row">
+								<label class="col-form-label col required" for="popin_debuttravaux">Date de début des travaux</label>
+								<div class="col">
+									<select id="popin_debuttravaux" name="popin[debuttravaux]" class="form-select">
+										<option value="au plus vite">au plus vite</option>
+										<option value="dans 1 mois">dans 1 mois</option>
+										<option value="dans 2 mois">dans 2 mois</option>
+										<option value="dans 6 mois">dans 6 mois</option>
+										<option value="dans 1 an">dans 1 an</option>
+										<option value="pas de date fixée">pas de date fixée</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-6 mb-3 row">
+								<label class="col-form-label col required" for="popin_objectif">objectif de votre demande</label>
+								<div class="col">
+									<select id="popin_objectif" name="popin[objectif]" class="form-select">
+										<option value="trouver une entreprise disponible">trouver une entreprise disponible</option>
+										<option value="obtenir des devis">obtenir des devis</option>
+										<option value="Avoir une idée du prix">Avoir une idée du prix</option>
+										<option value="autre">autre</option>
+									</select>
+								</div>
+							</div>
+
+
+							<div class="col-12 mb-3 row">
+								<div class="col">
+									<div class="form-check"><input type="checkbox" id="popin_cgu" name="popin[cgu]" required="required" class="form-check-input" value="1">
+										<label class="form-check-label required" for="popin_cgu">J'accepte les conditions d'utilisation (voir politique de vie privée)</label>
+									</div>
+								</div>
+							</div>
+
+						</form>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<blockquote>Ces informations servent au site Picbleu ou aux entreprises de confiance sélectionnées par Picbleu pour vous contacter et traiter votre demande.</blockquote>
+
+				<button type="button" class="btn btn-primary">Envoyer</button>
+			</div>
+		</div>
+	</div>
+</div>
