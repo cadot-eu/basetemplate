@@ -1,6 +1,6 @@
 {# /* ------------------------ macro pour les dropdowns ------------------------ */ #}
 {# Exemple d'utilisation :
-{{ dropdown('nom du dropdown', ['partie1',{'partie2':'home_index','partie4':'/home/test/toto'},'partie3']) }}
+{{ dropdown('nom du dropdown', ['partie1',{'partie2':'app_home','partie4':'/home/test/toto'},'partie3']) }}
 #}
 	{% macro dropdown(nom,parties) %}
 	{% set action =path(app.request.attributes.get('_route'),app.request.attributes.get('_route_params'))| split('/')| last %}
